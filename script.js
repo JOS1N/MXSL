@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /**
    * INICIALIZAÇÃO DO CARROSSEL (SWIPERJS)
-   * Configurações para o carrossel do portfólio.
    */
   const swiper = new Swiper(".portfolio-swiper", {
     loop: true,
@@ -62,5 +61,22 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceBetween: 30,
       },
     },
+  });
+
+  /**
+   * LÓGICA DE CLIQUE PARA MOSTRAR TEXTO NO PORTFÓLIO
+   */
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+  portfolioCards.forEach(card => {
+    card.addEventListener("click", function() {
+      const isAlreadyActive = this.classList.contains("is-active");
+
+      portfolioCards.forEach(c => c.classList.remove("is-active"));
+
+      if (!isAlreadyActive) {
+        this.classList.add("is-active");
+      }
+    });
   });
 });
