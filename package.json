@@ -1,20 +1,17 @@
 {
   "name": "mxsl",
   "version": "1.0.0",
-  "description": "Criação do Site do XUXA",
+  "description": "Site para a empresa MX Sound and Light",
   "main": "index.js",
+  "homepage": "https://JOS1N.github.io/MXSL",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JOS1N/MXSL.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JOS1N/MXSL/issues"
-  },
-  "homepage": "https://github.com/JOS1N/MXSL#readme"
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }
