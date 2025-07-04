@@ -1,39 +1,66 @@
-// script.js
+document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * LÓGICA DE ANIMAÇÃO AO ROLAR (INTERSECTION OBSERVER)
+   */
+  const animatedElements = document.querySelectorAll(".anim-on-scroll");
 
-document.addEventListener("DOMContentLoaded", function() {
-
-  // Animação fade-in ao rolar
-  const fadeElements = document.querySelectorAll(
-    ".portifolio__space, .text__child, .footer__info p"
-  );
-
-  // Verifique se existem elementos para observar
-  if (fadeElements.length > 0) {
+  if (animatedElements.length > 0) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in");
-            // Opcional: para de observar o elemento depois que ele aparece
+            entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 } // Começa a animação quando 10% do elemento está visível
+      {
+        threshold: 0.1,
+      }
     );
 
-    fadeElements.forEach((el) => observer.observe(el));
+    animatedElements.forEach((element) => {
+      observer.observe(element);
+    });
   }
 
-
-  // Ano automático no rodapé
+  /**
+   * ATUALIZAÇÃO AUTOMÁTICA DO ANO NO RODAPÉ
+   */
   const yearElement = document.getElementById("current-year");
-  if(yearElement) {
+  if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
-});
 
-// Para o ano funcionar, ajuste seu footer:
-/*
-  <p>© <span id="current-year"></span> - MX Sound and Light</p>
-*/
+  /**
+   * INICIALIZAÇÃO DO CARROSSEL (SWIPERJS)
+   * Configurações para o carrossel do portfólio.
+   */
+  const swiper = new Swiper(".portfolio-swiper", {
+    loop: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+  });
+});
