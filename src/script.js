@@ -33,45 +33,62 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * INICIALIZAÇÃO DO CARROSSEL (SWIPERJS)
+   * INICIALIZAÇÃO DO CARROSSEL (SWIPERJS) - COM FOCO CENTRAL E SETAS
    */
   const swiper = new Swiper(".portfolio-swiper", {
+    // Efeito de loop infinito
     loop: true,
-    spaceBetween: 30,
-    centeredSlides: true,
+
+    // Define o espaçamento entre os slides
+    spaceBetween: 30, // <-- VOLTOU PARA O VALOR MAIOR
+    
+    // Essencial para centralizar o slide ativo
+    centeredSlides: true, 
+
+    // Define quantos slides são visíveis. Usaremos breakpoints para responsividade.
+    slidesPerView: 1, // Padrão para telas bem pequenas
+
+    // Em telas maiores, mostra 3 slides, forçando o do meio a ficar centralizado
+    breakpoints: {
+      // a partir de 768px de largura
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30, // <-- VOLTOU PARA O VALOR MAIOR
+      },
+      // a partir de 1200px de largura
+      1200: {
+          slidesPerView: 3,
+          spaceBetween: 40, // <-- VOLTOU PARA O VALOR MAIOR
+      }
+    },
+
+    // Navegação por setas
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+
+    // Paginação por bolinhas
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-    },
   });
 
   /**
-   * LÓGICA DE CLIQUE PARA MOSTRAR TEXTO NO PORTFÓLIO
+   * LÓGICA DE CLIQUE PARA TRANSFORMAR CARD E MOSTRAR TEXTO
    */
   const portfolioCards = document.querySelectorAll(".portfolio-card");
 
   portfolioCards.forEach(card => {
-    card.addEventListener("click", function() {
-      const isAlreadyActive = this.classList.contains("is-active");
+    card.addEventListener("click", function(event) {
+      // Impede que o clique se propague e ative o slide, caso o card já esteja ativo
+      if (this.classList.contains('is-active')) {
+          event.stopPropagation();
+      }
 
+      const isAlreadyActive = this.classList.contains("is-active");
+      
       portfolioCards.forEach(c => c.classList.remove("is-active"));
 
       if (!isAlreadyActive) {
