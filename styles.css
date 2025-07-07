@@ -1,5 +1,37 @@
 /* =================================
-   RESET E CONFIGURAÇÕES GLOBAIS
+   1. VARIÁVEIS GLOBAIS (CUSTOM PROPERTIES)
+   ================================= */
+:root {
+  /* Cores */
+  --color-primary-accent: #00aaff;
+  --color-whatsapp-glow: rgba(0, 255, 135, 0.4);
+  --color-background: #000000;
+  --color-surface-primary: #111111;
+  --color-surface-secondary: #1a1a1a;
+  --color-surface-card: #1c1c1c;
+  --color-border: #222222;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cccccc;
+  --color-text-intro: #bbbbbb;
+  --color-text-footer-muted: #aaaaaa;
+  --color-text-legal: #666666;
+  --color-text-hover: #a0a0a0;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-card-gradient: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0) 70%);
+
+  /* Tipografia */
+  --font-family-base: "Roboto", sans-serif;
+  --line-height-base: 1.6;
+
+  /* Transições */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.5s ease;
+  --transition-smooth: 0.6s ease-out;
+  --transition-card: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* =================================
+   2. RESET E CONFIGURAÇÕES GLOBAIS
    ================================= */
 * {
   margin: 0;
@@ -12,10 +44,10 @@ html {
 }
 
 body {
-  background-color: #000;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  line-height: 1.6;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -26,17 +58,17 @@ img {
 }
 
 a {
-  color: #fff;
+  color: var(--color-text-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: #a0a0a0;
+  color: var(--color-text-hover);
 }
 
 /* =================================
-   CLASSES UTILITÁRIAS
+   3. CLASSES UTILITÁRIAS E GERAIS DE SEÇÃO
    ================================= */
 .container {
   max-width: 1200px;
@@ -44,16 +76,31 @@ a:hover {
   padding: 0 20px;
 }
 
-/* =================================
-   ANIMAÇÕES
-   ================================= */
-.anim-on-scroll {
-  /* opacity: 0; */
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.section-title {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.is-visible {
+.section-intro {
+  font-size: 1.1rem;
+  color: var(--color-text-intro);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+/* =================================
+   4. ANIMAÇÕES
+   ================================= */
+.anim-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.anim-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -70,8 +117,10 @@ a:hover {
 }
 
 /* =================================
-   HEADER
+   5. COMPONENTES (BEM)
    ================================= */
+
+/* ------------------- HEADER ------------------- */
 .header {
   display: flex;
   justify-content: space-between;
@@ -83,35 +132,32 @@ a:hover {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  transition: padding 0.3s ease;
+  transition: padding var(--transition-fast);
 }
 
-.logo a {
+.header__logo a {
   display: block;
   width: 100px;
 }
 
-.logo img {
+.header__logo img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
 }
 
-.navbar {
+.header__nav {
   display: flex;
   gap: 30px;
 }
 
-.navbar a {
+.header__nav a {
   font-weight: 700;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* =================================
-   HERO (BANNER)
-   ================================= */
+/* ------------------- HERO ------------------- */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -119,108 +165,81 @@ a:hover {
   justify-content: center;
   text-align: center;
   padding: 0 20px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background-image: linear-gradient(var(--color-overlay), var(--color-overlay)),
     url("images/baner2.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-.hero-title {
+.hero__title {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 900;
   margin-bottom: 10px;
 }
 
-.hero-subtitle {
+.hero__subtitle {
   font-size: clamp(1rem, 4vw, 1.2rem);
   font-weight: 300;
-  color: #ccc;
+  color: var(--color-text-secondary);
 }
 
-/* =================================
-   ESTILOS DE SEÇÃO PADRÃO
-   ================================= */
-.portfolio-section,
-.sobre-section {
-  padding: 120px 0;
-  background-color: #111;
-  border-top: 1px solid #222;
- 
+/* ------------------- PORTFOLIO ------------------- */
+.portfolio {
+  padding: 120px 0 0;
+  background-color: var(--color-surface-primary);
+  border-top: 1px solid var(--color-border);
 }
 
-.portfolio-section {
-    padding-bottom: 0;
+.portfolio__swiper {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 80px;
 }
 
-.section-title {
-  font-size: clamp(2.2rem, 6vw, 3rem);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.section-intro {
-  font-size: 1.1rem;
-  color: #bbb;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  margin: 0 auto 60px auto;
-}
-
-.text-block-full {
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  text-align: center;
-}
-
-.cta-block {
-  margin-top: 80px;
-  margin-bottom: 80px;
-  padding: 40px;
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  text-align: center;
-}
-
-/* =================================
-   PORTFÓLIO E INTERAÇÃO DE CLIQUE
-   ================================= */
+/* PORTFOLIO CARD */
 .portfolio-card {
   position: relative;
-  background-color: #1c1c1c;
-  border-radius: 50%; 
+  background-color: var(--color-surface-card);
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
   cursor: pointer;
-  width: 250px; 
-  height: 250px;
   flex-shrink: 0;
-  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-  margin-bottom: 80px;
+  transition: var(--transition-card);
 }
 
 .portfolio-card:hover {
   transform: scale(1.05);
 }
 
-.portfolio-img {
+/* MODIFIER */
+.portfolio-card--active {
+  border-radius: 12px;
+  width: 320px;
+  height: 450px;
+}
+
+.portfolio-card--active:hover {
+  transform: scale(1);
+}
+
+.portfolio-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.5s ease;
+  transition: opacity var(--transition-medium);
+  opacity: 1;
 }
 
 .portfolio-card::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0) 70%);
+  inset: 0;
+  background: var(--color-card-gradient);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity var(--transition-medium);
   z-index: 1;
 }
 
@@ -231,10 +250,10 @@ a:hover {
   width: 100%;
   padding: 25px;
   z-index: 2;
-  color: #fff;
+  color: var(--color-text-primary);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity var(--transition-medium), transform var(--transition-medium);
   text-align: center;
 }
 
@@ -244,140 +263,138 @@ a:hover {
   margin-bottom: 5px;
 }
 
-.portfolio-card__desc {
+.portfolio-card__description {
   font-size: 1rem;
-  color: #eee;
+  color: var(--color-text-secondary);
 }
 
-.portfolio-card.is-active {
-  border-radius: 12px; 
-  width: 320px; 
-  height: 450px; 
+.portfolio-card--active .portfolio-card__image {
+  opacity: 0.4; /* Levemente visível no fundo */
 }
 
-.portfolio-card.is-active:hover {
-  transform: scale(1);
-}
-
-.portfolio-card.is-active .portfolio-img,
-.portfolio-card.is-active::after {
-  opacity: 1;
-}
-
-.portfolio-card.is-active .portfolio-card__content {
+.portfolio-card--active::after,
+.portfolio-card--active .portfolio-card__content {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* =================================
-   ESTILOS DO CARROSSEL (SWIPERJS)
-   ================================= */
-.portfolio-swiper {
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 80px; 
-}
-
+/* SWIPER STYLES */
 .swiper-wrapper {
-    align-items: center;
+  align-items: center;
 }
 
 .swiper-slide {
   display: flex;
   justify-content: center;
-  height: 600px; /* <-- VALOR AUMENTADO (era 480px) */
   align-items: center;
+  min-height: 480px;
   transition: transform 0.4s, opacity 0.4s;
-  opacity: 0.4;
+  opacity: 0.5;
   transform: scale(0.8);
 }
 
 .swiper-slide-active {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #ffffff;
+  color: var(--color-text-primary);
   transition: transform 0.2s ease;
 }
-
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
-
 .swiper-pagination-bullet {
-  background-color: #888;
+  background-color: var(--color-text-hover);
 }
-
 .swiper-pagination-bullet-active {
-  background-color: #ffffff;
+  background-color: var(--color-text-primary);
 }
 
-
-/* =================================
-   SOBRE
-   ================================= */
-.sobre-section {
-  background-color: #000;
+/* ------------------- ABOUT ------------------- */
+.about {
+  padding: 120px 0;
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border);
 }
-.sobre-content {
+
+.about__intro-text {
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.about__content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  margin-top: 60px;
   align-items: start;
 }
 
-.section-subtitle {
+.about__subtitle {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
-.section-paragraph {
-  color: #ccc;
-  font-size: 1rem;
+.about__text-block p {
+  color: var(--color-text-secondary);
 }
 
-.service-list {
+.about__service-list {
   list-style: none;
   padding-left: 0;
+  margin-top: 15px;
 }
 
-.service-list li {
-  color: #ccc;
+.about__service-item {
+  color: var(--color-text-secondary);
   margin-bottom: 10px;
   padding-left: 25px;
   position: relative;
 }
 
-.service-list li::before {
+.about__service-item::before {
   content: "✓";
-  color: #00aaff;
+  color: var(--color-primary-accent);
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
-/* =================================
-   FOOTER
-   ================================= */
+/* ------------------- CTA BLOCK ------------------- */
+.cta-block {
+  margin-top: 80px;
+  padding: 40px;
+  background-color: var(--color-surface-secondary);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cta-block__title {
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* ------------------- FOOTER ------------------- */
 .footer {
-  background-color: #111;
+  background-color: var(--color-surface-primary);
   padding: 60px 20px;
   text-align: center;
-  border-top: 1px solid #222;
+  border-top: 1px solid var(--color-border);
 }
 
 .footer__info p {
   margin-bottom: 15px;
-  color: #aaa;
+  color: var(--color-text-footer-muted);
 }
 .footer__info strong {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .footer__social {
@@ -387,25 +404,23 @@ a:hover {
   margin-top: 30px;
 }
 
-.footer__social img {
+.footer__social-link img {
   width: 30px;
   height: 30px;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-fast);
 }
 
-.footer__social img:hover {
+.footer__social-link:hover img {
   transform: scale(1.2);
 }
 
 .footer__legal {
   margin-top: 40px;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--color-text-legal);
 }
 
-/* =================================
-   BOTÃO WHATSAPP
-   ================================= */
+/* ------------------- WHATSAPP FLOAT ------------------- */
 .whatsapp-float {
   position: fixed;
   bottom: 25px;
@@ -418,23 +433,23 @@ a:hover {
   height: 60px;
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.whatsapp-float img:hover {
+.whatsapp-float:hover img {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 255, 135, 0.4);
+  box-shadow: 0 6px 20px var(--color-whatsapp-glow);
 }
 
 /* =================================
-   RESPONSIVIDADE
+   6. RESPONSIVIDADE
    ================================= */
 @media (max-width: 1024px) {
-  .portfolio-section,
-  .sobre-section {
+  .portfolio,
+  .about {
     padding-top: 100px;
   }
-  .sobre-content {
+  .about__content-grid {
     gap: 40px;
   }
 }
@@ -447,37 +462,37 @@ a:hover {
     position: relative;
     backdrop-filter: none;
   }
-  .navbar {
+  .header__nav {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .navbar a {
+  .header__nav a {
     font-size: 0.8rem;
   }
   .hero {
     min-height: 70vh;
     background-attachment: scroll;
   }
-  .portfolio-section,
-  .sobre-section {
+  .portfolio,
+  .about {
     padding-top: 80px;
+  }
+  .section-intro {
+    margin-bottom: 40px;
   }
   .portfolio-card {
     width: 200px;
     height: 200px;
   }
-  .portfolio-card.is-active {
+  .portfolio-card--active {
     width: 280px;
     height: 380px;
   }
   .swiper-slide {
-      height: 480px; /* <-- VALOR AUMENTADO PARA TELAS MENORES (era 420px) */
+    min-height: 420px;
   }
-  .section-intro {
-    margin-bottom: 40px;
-  }
-  .sobre-content {
+  .about__content-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
