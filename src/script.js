@@ -1,99 +1,110 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   /**
-   * LÓGICA DE ANIMAÇÃO AO ROLAR (INTERSECTION OBSERVER)
+   * Função principal que inicializa todos os módulos da página.
+   * Serve como um ponto de entrada claro para o script.
    */
-  const animatedElements = document.querySelectorAll(".anim-on-scroll");
+  const initApp = () => {
+    setupScrollAnimation();
+    updateFooterYear();
+    initializeSwiper();
+    setupPortfolioInteraction();
+  };
 
-  if (animatedElements.length > 0) {
+  /**
+   * Configura a animação de elementos ao rolar a página.
+   * Usa IntersectionObserver para melhor performance.
+   */
+  const setupScrollAnimation = () => {
+    const animatedElements = document.querySelectorAll(".anim-on-scroll");
+    if (!animatedElements.length) return; // Evita erros se não houver elementos
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Anima apenas uma vez
           }
         });
       },
-      {
-        threshold: 0.1,
-      }
+      { threshold: 0.1 }
     );
 
-    animatedElements.forEach((element) => {
-      observer.observe(element);
-    });
-  }
+    animatedElements.forEach((element) => observer.observe(element));
+  };
 
   /**
-   * ATUALIZAÇÃO AUTOMÁTICA DO ANO NO RODAPÉ
+   * Atualiza dinamicamente o ano no rodapé para o ano corrente.
    */
-  const yearElement = document.getElementById("current-year");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  const updateFooterYear = () => {
+    const yearElement = document.getElementById("current-year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  };
 
   /**
-   * INICIALIZAÇÃO DO CARROSSEL (SWIPERJS) - COM FOCO CENTRAL E SETAS
+   * Inicializa o carrossel SwiperJS com as configurações do projeto.
    */
-  const swiper = new Swiper(".portfolio-swiper", {
-    // Efeito de loop infinito
-    loop: true,
+  const initializeSwiper = () => {
+    if (typeof Swiper === "undefined") {
+      console.error("Biblioteca SwiperJS não foi carregada.");
+      return;
+    }
 
-    // Define o espaçamento entre os slides
-    spaceBetween: 30, // <-- VOLTOU PARA O VALOR MAIOR
-    
-    // Essencial para centralizar o slide ativo
-    centeredSlides: true, 
-
-    // Define quantos slides são visíveis. Usaremos breakpoints para responsividade.
-    slidesPerView: 1, // Padrão para telas bem pequenas
-
-    // Em telas maiores, mostra 3 slides, forçando o do meio a ficar centralizado
-    breakpoints: {
-      // a partir de 768px de largura
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30, // <-- VOLTOU PARA O VALOR MAIOR
-      },
-      // a partir de 1200px de largura
-      1200: {
+    new Swiper(".portfolio__swiper", {
+      loop: true,
+      centeredSlides: true,
+      grabCursor: true,
+      slidesPerView: 1, // Visão padrão para mobile
+      spaceBetween: 15,
+      breakpoints: {
+        768: {
           slidesPerView: 3,
-          spaceBetween: 40, // <-- VOLTOU PARA O VALOR MAIOR
-      }
-    },
-
-    // Navegação por setas
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-    // Paginação por bolinhas
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  };
 
   /**
-   * LÓGICA DE CLIQUE PARA TRANSFORMAR CARD E MOSTRAR TEXTO
+   * Adiciona a interatividade de clique aos cartões do portfólio.
+   * Clicar em um cartão o expande e fecha qualquer outro que esteja aberto.
    */
-  const portfolioCards = document.querySelectorAll(".portfolio-card");
+  const setupPortfolioInteraction = () => {
+    const portfolioCards = document.querySelectorAll(".portfolio-card");
+    if (!portfolioCards.length) return;
 
-  portfolioCards.forEach(card => {
-    card.addEventListener("click", function(event) {
-      // Impede que o clique se propague e ative o slide, caso o card já esteja ativo
-      if (this.classList.contains('is-active')) {
-          event.stopPropagation();
-      }
+    portfolioCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        // Se o cartão clicado já está ativo, não faz nada para evitar fechar.
+        if (card.classList.contains("portfolio-card--active")) {
+          return;
+        }
 
-      const isAlreadyActive = this.classList.contains("is-active");
-      
-      portfolioCards.forEach(c => c.classList.remove("is-active"));
+        // Procura e desativa qualquer outro cartão que esteja ativo
+        const currentlyActiveCard = document.querySelector(".portfolio-card--active");
+        if (currentlyActiveCard) {
+            currentlyActiveCard.classList.remove("portfolio-card--active");
+        }
 
-      if (!isAlreadyActive) {
-        this.classList.add("is-active");
-      }
+        // Ativa o cartão que foi clicado
+        card.classList.add("portfolio-card--active");
+      });
     });
-  });
+  };
+
+  // Executa a aplicação quando o DOM estiver pronto
+  initApp();
 });
