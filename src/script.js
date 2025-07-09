@@ -1,3 +1,11 @@
+// Aplica o tema salvo no localStorage assim que a página carrega para evitar "flash"
+(function() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   /**
    * Função principal que inicializa todos os módulos.
@@ -9,10 +17,29 @@ document.addEventListener("DOMContentLoaded", () => {
     setupPortfolioModal();
     setupImageLightbox();
     setupEscapeKey();
+    setupThemeToggle();
   };
 
   /**
-   * Animação de elementos ao rolar.
+   * Configura o botão de alternância de tema.
+   */
+  const setupThemeToggle = () => {
+    const themeToggleButton = document.querySelector(".theme-toggle");
+    if (!themeToggleButton) return;
+
+    themeToggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+
+      if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+      } else {
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  };
+
+  /**
+   * Configura a animação de elementos ao rolar.
    */
   const setupScrollAnimation = () => {
     const animatedElements = document.querySelectorAll(".anim-on-scroll");
@@ -76,15 +103,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalTitle = modal.querySelector(".modal__title");
     const modalDescription = modal.querySelector(".modal__description");
+    const modalGalleryImages = modal.querySelectorAll(".modal__gallery-image");
     const closeButton = modal.querySelector(".modal__close");
     const overlay = modal.querySelector(".modal__overlay");
 
     const openModal = (card) => {
-      const title = card.querySelector(".portfolio-card__title").textContent;
-      const description = card.querySelector(".portfolio-card__description").textContent;
-
-      modalTitle.textContent = title;
-      modalDescription.textContent = description;
+      modalTitle.textContent = card.querySelector(".portfolio-card__title").textContent;
+      modalDescription.textContent = card.querySelector(".portfolio-card__description").textContent;
+      
+      // Lê as imagens do atributo data-images e atualiza a galeria da modal
+      const images = JSON.parse(card.dataset.images || '[]');
+      modalGalleryImages.forEach((img, index) => {
+        if (images[index]) {
+          img.src = images[index];
+          img.style.display = 'block';
+        } else {
+          img.style.display = 'none'; // Esconde se não houver imagem
+        }
+      });
 
       modal.classList.remove("modal--hidden");
       document.body.classList.add("modal-open");
@@ -128,7 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     galleryImages.forEach(img => {
         img.addEventListener("click", () => {
-            openLightbox(img.src);
+            // Só abre o lightbox se a imagem tiver um 'src' válido
+            if(img.src && !img.src.endsWith('#')) {
+                openLightbox(img.src);
+            }
         });
     });
 
@@ -142,11 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupEscapeKey = () => {
       document.addEventListener("keydown", (event) => {
       if (event.key !== "Escape") return;
-
       const modal = document.querySelector(".modal");
       const lightbox = document.querySelector(".image-lightbox");
 
-      // Fecha o lightbox se estiver aberto, senão, fecha a modal
       if (!lightbox.classList.contains("image-lightbox--hidden")) {
         lightbox.classList.add("image-lightbox--hidden");
       } else if (!modal.classList.contains("modal--hidden")) {

@@ -20,16 +20,20 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <a href="#hero" aria-label="Página Inicial">
-          <img src="./images/logo.png" alt="Logo da MX Sound and Light" />
-        </a>
+        <a href="#hero" aria-label="Página Inicial" class="header__logo-link"></a>
+      </div>
       </div>
       <nav class="header__nav">
         <a href="#portfolio">Portfólio</a>
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
+        <a href="#localizacao">Localização</a>
         <a href="#contato">Contato</a>
       </nav>
+      <button class="theme-toggle" aria-label="Alternar entre tema claro e escuro">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.55 4.95l1.414-1.414L7.05 5.636 5.636 7.05 3.55 4.95zm12.728 12.728l1.414-1.414L19.05 18.364l-1.414 1.414-2.122-2.121zM1 11h3v2H1v-2zm19 0h3v2h-3v-2zM4.95 20.45l-1.414-1.414L5.636 16.95l1.414 1.414-2.121 2.121zm12.728-12.728l-1.414-1.414L16.95 5.636l1.414 1.414 2.121-2.121z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C20.66 17.89 16.84 21.5 12.01 21.5A9.5 9.5 0 1 1 11.38 2.02z"/></svg>
+      </button>
     </header>
 
     <main>
@@ -52,81 +56,50 @@
             Clique em um projeto para ver os detalhes e mais fotos.
           </p>
         </div>
-
         <div class="swiper portfolio__swiper anim-on-scroll">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="portfolio-card">
-                <img
-                  src="./images/baner2.png"
-                  alt="Iluminação cênica para casamento"
-                  class="portfolio-card__image"
-                />
+              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
+                <img src="images/baner2.png" alt="Iluminação cênica para casamento" class="portfolio-card__image" />
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Casamento Sofisticado</h3>
-                  <p class="portfolio-card__description">
-                    Iluminação cênica e sonorização ambiente para criar uma atmosfera mágica e inesquecível.
-                  </p>
+                  <p class="portfolio-card__description">Iluminação cênica e sonorização ambiente para criar uma atmosfera mágica e inesquecível.</p>
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="portfolio-card">
-                <img
-                  src="./images/baner2.png"
-                  alt="Estrutura de palco para show musical"
-                  class="portfolio-card__image"
-                />
+              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
+                <img src="images/baner2.png" alt="Estrutura de palco para show musical" class="portfolio-card__image" />
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Show Musical</h3>
-                  <p class="portfolio-card__description">
-                    PA, monitores e iluminação dinâmica com moving heads para uma performance de alto impacto.
-                  </p>
+                  <p class="portfolio-card__description">PA, monitores e iluminação dinâmica com moving heads para uma performance de alto impacto.</p>
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="portfolio-card">
-                <img
-                  src="./images/baner2.png"
-                  alt="Painel de LED em evento corporativo"
-                  class="portfolio-card__image"
-                />
+              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
+                <img src="images/baner2.png" alt="Painel de LED em evento corporativo" class="portfolio-card__image" />
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Evento Corporativo</h3>
-                  <p class="portfolio-card__description">
-                    Painéis de LED de alta resolução e microfonia profissional para apresentações claras.
-                  </p>
+                  <p class="portfolio-card__description">Painéis de LED de alta resolução e microfonia profissional para apresentações claras.</p>
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="portfolio-card">
-                <img
-                  src="./images/baner2.png"
-                  alt="Pista de dança em formatura"
-                  class="portfolio-card__image"
-                />
+              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
+                <img src="images/baner2.png" alt="Pista de dança em formatura" class="portfolio-card__image" />
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Baile de Formatura</h3>
-                  <p class="portfolio-card__description">
-                    Estrutura box truss, moving beams e efeitos especiais para uma noite de celebração vibrante.
-                  </p>
+                  <p class="portfolio-card__description">Estrutura box truss, moving beams e efeitos especiais para uma noite de celebração vibrante.</p>
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="portfolio-card">
-                <img
-                  src="./images/baner2.png"
-                  alt="Decoração de Natal"
-                  class="portfolio-card__image"
-                />
+              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
+                <img src="images/baner2.png" alt="Decoração de Natal" class="portfolio-card__image" />
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Decoração de Natal</h3>
-                  <p class="portfolio-card__description">
-                    Iluminação especial para fachadas e ambientes, criando um cenário natalino encantador.
-                  </p>
+                  <p class="portfolio-card__description">Iluminação especial para fachadas e ambientes, criando um cenário natalino encantador.</p>
                 </div>
               </div>
             </div>
@@ -143,113 +116,42 @@
           <p class="section-intro anim-on-scroll">
             MX Sound & Light – Excelência em Som, Luz e Produções Audiovisuais
           </p>
-
-          <div class="about__intro-text anim-on-scroll">
-            <p>
-              Com mais de uma década de experiência no mercado de eventos, a MX
-              Sound & Light é referência em projetos de sonorização, iluminação
-              cênica e soluções audiovisuais personalizadas. Localizada em
-              Pinhais, na região metropolitana de Curitiba (PR), a empresa se
-              destaca pelo atendimento técnico de alto nível, equipamentos de
-              última geração e comprometimento com a excelência operacional.
-            </p>
-          </div>
-
+          <div class="about__intro-text anim-on-scroll"><p>Com mais de uma década de experiência no mercado de eventos, a MX Sound & Light é referência em projetos de sonorização, iluminação cênica e soluções audiovisuais personalizadas. Localizada em Pinhais, na região metropolitana de Curitiba (PR), a empresa se destaca pelo atendimento técnico de alto nível, equipamentos de última geração e comprometimento com a excelência operacional.</p></div>
           <div class="about__content-grid">
             <div class="about__text-block anim-on-scroll" id="servicos">
-              <h3 class="about__subtitle">
-                Especialistas em tecnologia para eventos inesquecíveis
-              </h3>
-              <p>
-                A MX Sound & Light atua em casamentos, formaturas, aniversários,
-                eventos corporativos, shows, congressos, inaugurações e
-                projetos especiais como decorações natalinas e ativações de
-                marca. Seus serviços incluem:
-              </p>
-              <ul class="about__service-list">
-                <li class="about__service-item">
-                  Iluminação cênica e decorativa com moving heads, painéis de
-                  LED e canhões de luz
-                </li>
-                <li class="about__service-item">
-                  Sonorização profissional com mixers digitais, monitores e
-                  caixas acústicas de alto desempenho
-                </li>
-                <li class="about__service-item">
-                  Projetos luminotécnicos personalizados, desenvolvidos por
-                  profissionais certificados
-                </li>
-                <li class="about__service-item">
-                  Montagem, operação técnica e desmontagem, sempre com foco na
-                  segurança e no impacto visual
-                </li>
-              </ul>
-              <p style="margin-top: 20px">
-                Todos os projetos seguem rigorosamente as normas de segurança
-                do trabalho (NR10 e NR18), garantindo não apenas um espetáculo
-                visual, mas também a tranquilidade de quem contrata.
-              </p>
+              <h3 class="about__subtitle">Especialistas em tecnologia para eventos inesquecíveis</h3>
+              <p>A MX Sound & Light atua em casamentos, formaturas, aniversários, eventos corporativos, shows, congressos, inaugurações e projetos especiais como decorações natalinas e ativações de marca. Seus serviços incluem:</p>
+              <ul class="about__service-list"><li class="about__service-item">Iluminação cênica e decorativa com moving heads, painéis de LED e canhões de luz</li><li class="about__service-item">Sonorização profissional com mixers digitais, monitores e caixas acústicas de alto desempenho</li><li class="about__service-item">Projetos luminotécnicos personalizados, desenvolvidos por profissionais certificados</li><li class="about__service-item">Montagem, operação técnica e desmontagem, sempre com foco na segurança e no impacto visual</li></ul>
+              <p style="margin-top: 20px">Todos os projetos seguem rigorosamente as normas de segurança do trabalho (NR10 e NR18), garantindo não apenas um espetáculo visual, mas também a tranquilidade de quem contrata.</p>
             </div>
-
             <div class="about__text-block anim-on-scroll">
               <h3 class="about__subtitle">Portfólio de alto padrão</h3>
-              <p>
-                Sob a direção criativa de Maurício “Xuxa”, profissional com
-                ampla bagagem no setor de eventos e entretenimento, a MX Sound
-                & Light já participou de produções de grande porte como o Natal
-                do Palácio Avenida (Bradesco), além de eventos sofisticados
-                como o Baile da Vogue em Curitiba. A empresa também possui
-                atuação nacional, com presença marcante em eventos em São
-                Paulo, Rio de Janeiro, Brasília, Santa Catarina e Cuiabá.
-              </p>
+              <p>Sob a direção criativa de Maurício “Xuxa”, profissional com ampla bagagem no setor de eventos e entretenimento, a MX Sound & Light já participou de produções de grande porte como o Natal do Palácio Avenida (Bradesco), além de eventos sofisticados como o Baile da Vogue em Curitiba. A empresa também possui atuação nacional, com presença marcante em eventos em São Paulo, Rio de Janeiro, Brasília, Santa Catarina e Cuiabá.</p>
             </div>
-
             <div class="about__text-block anim-on-scroll">
               <h3 class="about__subtitle">Estrutura e credibilidade</h3>
-              <p>
-                Registrada como Mx Sound and Light LTDA, a empresa tem CNPJ
-                ativo, sede própria e equipe técnica especializada. Seu
-                diferencial está na capacidade de adaptar soluções técnicas ao
-                estilo e ao orçamento de cada cliente, com pacotes que podem
-                partir de R$ 1.500, dependendo da estrutura e logística
-                envolvidas.
-              </p>
+              <p>Registrada como Mx Sound and Light LTDA, a empresa tem CNPJ ativo, sede própria e equipe técnica especializada. Seu diferencial está na capacidade de adaptar soluções técnicas ao estilo e ao orçamento de cada cliente, com pacotes que podem partir de R$ 1.500, dependendo da estrutura e logística envolvidas.</p>
             </div>
-
             <div class="about__text-block anim-on-scroll">
               <h3 class="about__subtitle">Localização e atendimento</h3>
-              <p>
-                A base operacional está localizada em Rua Rio Azul, 2669 –
-                Pinhais/PR, e os atendimentos são feitos mediante agendamento
-                prévio, com recomendação de no mínimo 30 dias de antecedência
-                para eventos complexos.
-              </p>
+              <p>A base operacional está localizada em Rua Rio Azul, 2669 – Pinhais/PR, e os atendimentos são feitos mediante agendamento prévio, com recomendação de no mínimo 30 dias de antecedência para eventos complexos.</p>
             </div>
           </div>
-
           <div class="cta-block anim-on-scroll">
-            <h2 class="cta-block__title">
-              Transforme seu evento em uma experiência sensorial única
-            </h2>
-            <p>
-              Se você busca tecnologia, criatividade e comprometimento para
-              elevar o nível do seu evento, a MX Sound & Light é a escolha
-              certa. Entre em contato e descubra como transformar ambientes
-              comuns em experiências inesquecíveis, com iluminação cênica, som
-              profissional e soluções audiovisuais de alto impacto.
-            </p>
+            <h2 class="cta-block__title">Transforme seu evento em uma experiência sensorial única</h2>
+            <p>Se você busca tecnologia, criatividade e comprometimento para elevar o nível do seu evento, a MX Sound & Light é a escolha certa. Entre em contato e descubra como transformar ambientes comuns em experiências inesquecíveis, com iluminação cênica, som profissional e soluções audiovisuais de alto impacto.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="location" id="localizacao">
+        <div class="container">
+          <h2 class="section-title anim-on-scroll">Nossa Localização</h2>
+          <p class="section-intro anim-on-scroll">
+            Estamos localizados em Pinhais, prontos para atender Curitiba e região. Venha tomar um café e conhecer nossa estrutura.
+          </p>
           <div class="location__map-container anim-on-scroll">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.812399553754!2d-49.17604682460699!3d-25.44460597755331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce1f687483a41%3A0x8671be9452b4759!2sR.%20Eut%C3%A1lia%20Maria%20dos%20Santos%2C%204155%20-%20Vila%20Carolina%2C%20Pinhais%20-%20PR%2C%2083326-280!5e0!3m2!1spt-BR!2sbr!4v1720534015099!5m2!1spt-BR!2sbr" 
-              width="600" 
-              height="450" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa de localização da MX Sound and Light">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.219597182218!2d-49.18349252461014!3d-25.43097197756184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce111039803b3%3A0x6b63065a3b753444!2sR.%20Eut%C3%A1lia%20Maria%20dos%20Santos%2C%204155%20-%20Vila%20Carolina%2C%20Pinhais%20-%20PR%2C%2083326-280!5e0!3m2!1spt-BR!2sbr!4v1720551048868!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização da MX Sound and Light"></iframe>
           </div>
         </div>
       </section>
@@ -258,74 +160,22 @@
     <footer class="footer" id="contato">
       <div class="container">
         <div class="footer__info anim-on-scroll">
-          <p>
-            <strong>Endereço:</strong> R. Eutália Maria dos Santos, 4155 -
-            Vila Carolina, Pinhais - PR, 83326-280
-          </p>
+          <p><strong>Endereço:</strong> R. Eutália Maria dos Santos, 4155 - Vila Carolina, Pinhais - PR, 83326-280</p>
           <p><strong>Telefone:</strong> (41) 99931-6363</p>
           <p><strong>Email:</strong> contato@mxsound.com.br</p>
         </div>
-
         <div class="footer__social anim-on-scroll">
-          <a
-            href="https://wa.me/5541999316363?text=Ol%C3%A1%21%20Tenho%20interesse%20nos%20servi%C3%A7os%20da%20MX%20Sound%20and%20Light%20para%20um%20evento.%20Poderiam%20me%20passar%20mais%20detalhes%20e%20valores%3F"
-            target="_blank"
-            aria-label="Contato via WhatsApp"
-            class="footer__social-link"
-          >
-            <img src="./images/whats.png" alt="Ícone do WhatsApp" />
-          </a>
-          <a
-            href="https://instagram.com/mxsoundandlight"
-            target="_blank"
-            aria-label="Visite nosso Instagram"
-            class="footer__social-link"
-          >
-            <img src="./images/instagram.png" alt="Ícone do Instagram" />
-          </a>
+          <a href="https://wa.me/5541999316363?text=Ol%C3%A1%21%20Tenho%20interesse%20nos%20servi%C3%A7os%20da%20MX%20Sound%20and%20Light%20para%20um%20evento.%20Poderiam%20me%20passar%20mais%20detalhes%20e%20valores%3F" target="_blank" aria-label="Contato via WhatsApp" class="footer__social-link"><img src="./images/whats.png" alt="Ícone do WhatsApp" /></a>
+          <a href="https://instagram.com/mxsoundandlight" target="_blank" aria-label="Visite nosso Instagram" class="footer__social-link"><img src="./images/instagram.png" alt="Ícone do Instagram" /></a>
         </div>
-
-        <div class="footer__legal anim-on-scroll">
-          <p>
-            © <span id="current-year">2025</span> - MX Sound and Light LTDA.
-            Todos os direitos reservados.
-          </p>
-        </div>
+        <div class="footer__legal anim-on-scroll"><p>© <span id="current-year">2025</span> - MX Sound and Light LTDA. Todos os direitos reservados.</p></div>
       </div>
     </footer>
 
-    <a
-      href="https://wa.me/5541999316363?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20um%20evento."
-      target="_blank"
-      class="whatsapp-float"
-      aria-label="Contato via WhatsApp"
-    >
-      <img src="./images/whats.png" alt="Ícone do WhatsApp" />
-    </a>
-
+    <a href="https://wa.me/5541999316363?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20um%20evento." target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp"><img src="./images/whats.png" alt="Ícone do WhatsApp" /></a>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js" defer></script>
-    
-    <div class="modal modal--hidden">
-      <div class="modal__overlay"></div>
-      <div class="modal__content">
-        <button class="modal__close" aria-label="Fechar janela">&times;</button>
-        <h3 class="modal__title">Título do Evento</h3>
-        <p class="modal__description">Descrição detalhada do projeto aqui.</p>
-        <div class="modal__gallery">
-          <img src="./images/baner2.png" alt="Foto 1 do evento" class="modal__gallery-image">
-          <img src="./images/baner2.png" alt="Foto 2 do evento" class="modal__gallery-image">
-          <img src="./images/baner2.png" alt="Foto 3 do evento" class="modal__gallery-image">
-          <img src="./images/baner2.png" alt="Foto 4 do evento" class="modal__gallery-image">
-        </div>
-      </div>
-    </div>
-
-    <div class="image-lightbox image-lightbox--hidden">
-      <div class="image-lightbox__overlay"></div>
-      <span class="image-lightbox__close">&times;</span>
-      <img src="" alt="Imagem do evento em destaque" class="image-lightbox__image">
-    </div>
-
+    <div class="modal modal--hidden"><div class="modal__overlay"></div><div class="modal__content"><button class="modal__close" aria-label="Fechar janela">&times;</button><h3 class="modal__title">Título do Evento</h3><p class="modal__description">Descrição detalhada do projeto aqui.</p><div class="modal__gallery"><img src="" alt="Foto 1 do evento" class="modal__gallery-image"><img src="" alt="Foto 2 do evento" class="modal__gallery-image"><img src="" alt="Foto 3 do evento" class="modal__gallery-image"><img src="" alt="Foto 4 do evento" class="modal__gallery-image"></div></div></div>
+    <div class="image-lightbox image-lightbox--hidden"><div class="image-lightbox__overlay"></div><span class="image-lightbox__close">&times;</span><img src="" alt="Imagem do evento em destaque" class="image-lightbox__image"></div>
   </body>
 </html>
