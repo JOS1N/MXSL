@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MX Sound and Light – Excelência em Eventos</title>
     <link rel="icon" href="images/logoh.png" type="image/png" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -52,7 +49,7 @@
             Nosso Trabalho em Destaque
           </h2>
           <p class="section-intro anim-on-scroll">
-            Use as setas para navegar e clique para ver os detalhes.
+            Clique em um projeto para ver os detalhes e mais fotos.
           </p>
         </div>
 
@@ -68,7 +65,7 @@
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Casamento Sofisticado</h3>
                   <p class="portfolio-card__description">
-                    Iluminação cênica e sonorização ambiente.
+                    Iluminação cênica e sonorização ambiente para criar uma atmosfera mágica e inesquecível.
                   </p>
                 </div>
               </div>
@@ -83,7 +80,7 @@
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Show Musical</h3>
                   <p class="portfolio-card__description">
-                    PA, monitores e iluminação dinâmica com moving heads.
+                    PA, monitores e iluminação dinâmica com moving heads para uma performance de alto impacto.
                   </p>
                 </div>
               </div>
@@ -98,7 +95,7 @@
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Evento Corporativo</h3>
                   <p class="portfolio-card__description">
-                    Painéis de LED e microfonia.
+                    Painéis de LED de alta resolução e microfonia profissional para apresentações claras.
                   </p>
                 </div>
               </div>
@@ -113,7 +110,7 @@
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Baile de Formatura</h3>
                   <p class="portfolio-card__description">
-                    Estrutura box truss e moving beams.
+                    Estrutura box truss, moving beams e efeitos especiais para uma noite de celebração vibrante.
                   </p>
                 </div>
               </div>
@@ -128,7 +125,7 @@
                 <div class="portfolio-card__content">
                   <h3 class="portfolio-card__title">Decoração de Natal</h3>
                   <p class="portfolio-card__description">
-                    Iluminação especial para fachadas.
+                    Iluminação especial para fachadas e ambientes, criando um cenário natalino encantador.
                   </p>
                 </div>
               </div>
@@ -296,5 +293,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js" defer></script>
+    
+    <div class="modal modal--hidden">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" aria-label="Fechar janela">&times;</button>
+        <h3 class="modal__title">Título do Evento</h3>
+        <p class="modal__description">Descrição detalhada do projeto aqui.</p>
+        <div class="modal__gallery">
+          <img src="./images/baner2.png" alt="Foto 1 do evento" class="modal__gallery-image">
+          <img src="./images/baner2.png" alt="Foto 2 do evento" class="modal__gallery-image">
+          <img src="./images/baner2.png" alt="Foto 3 do evento" class="modal__gallery-image">
+          <img src="./images/baner2.png" alt="Foto 4 do evento" class="modal__gallery-image">
+        </div>
+      </div>
+    </div>
+
+    <div class="image-lightbox image-lightbox--hidden">
+      <div class="image-lightbox__overlay"></div>
+      <span class="image-lightbox__close">&times;</span>
+      <img src="" alt="Imagem do evento em destaque" class="image-lightbox__image">
+    </div>
+
   </body>
 </html>
