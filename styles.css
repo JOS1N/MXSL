@@ -114,7 +114,7 @@ body.modal-open { overflow: hidden; }
 .swiper-pagination-bullet-active { background-color: var(--color-text-primary); }
 
 /* --- MODAL --- */
-.modal { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 1; visibility: visible; transition: opacity var(--transition-fast), visibility var(--transition-fast); }
+.modal { position: fixed; inset: 0; z-index: 2000; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto;  padding: 50px 20px; opacity: 1; visibility: visible; transition: opacity var(--transition-fast), visibility var(--transition-fast);}
 .modal--hidden { opacity: 0; visibility: hidden; }
 .modal__overlay { position: absolute; inset: 0; background-color: var(--color-overlay); backdrop-filter: blur(5px); cursor: pointer; }
 .modal__content { position: relative; background-color: var(--color-surface-primary); padding: 40px; border-radius: 8px; max-width: 900px; width: 100%; z-index: 2001; border-top: 3px solid var(--color-primary-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: scale(1); transition: transform var(--transition-fast); }
@@ -123,7 +123,7 @@ body.modal-open { overflow: hidden; }
 .modal__close:hover { color: var(--color-text-primary); }
 .modal__title { font-size: clamp(1.8rem, 5vw, 2.2rem); font-weight: 700; margin-bottom: 10px; text-align: center; }
 .modal__description { font-size: 1rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border); }
-.modal__gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+.modal__gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;}
 .modal__gallery-image { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; border: 1px solid var(--color-border); cursor: pointer; transition: transform var(--transition-fast); }
 .modal__gallery-image:hover { transform: scale(1.05); }
 
