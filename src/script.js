@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * Função principal que inicializa todos os módulos.
    */
   const initApp = () => {
+    initParticles();
     setupScrollAnimation();
     updateFooterYear();
     initializeSwiper();
@@ -21,15 +22,43 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
+   * Inicializa e configura o fundo de partículas (particles.js)
+   */
+  const initParticles = () => {
+    if (typeof particlesJS === 'undefined') {
+      console.error('Biblioteca particles.js não foi carregada.');
+      return;
+    }
+    const particleConfig = {
+      "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
+      "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 } } },
+      "retina_detect": true
+    };
+    particlesJS('particles-js', particleConfig);
+    
+    // Função para atualizar as cores das partículas com base no tema
+    const updateParticlesColor = () => {
+        if (!window.pJSDom || !window.pJSDom[0]) return;
+        const pJS = window.pJSDom[0].pJS;
+        const newColor = document.body.classList.contains('light-mode') ? '#1a1a1a' : '#ffffff';
+        pJS.particles.color.value = newColor;
+        pJS.particles.line_linked.color = newColor;
+        pJS.fn.particlesRefresh();
+    };
+    
+    setTimeout(updateParticlesColor, 200);
+    const themeToggleButton = document.querySelector(".theme-toggle");
+    if(themeToggleButton) themeToggleButton.addEventListener('click', updateParticlesColor);
+  };
+
+  /**
    * Configura o botão de alternância de tema.
    */
   const setupThemeToggle = () => {
     const themeToggleButton = document.querySelector(".theme-toggle");
     if (!themeToggleButton) return;
-
     themeToggleButton.addEventListener("click", () => {
       document.body.classList.toggle("light-mode");
-
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
       } else {
@@ -78,6 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
       grabCursor: true,
       slidesPerView: 1,
       spaceBetween: 15,
+      speed: 1500,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
       breakpoints: {
         768: { slidesPerView: 3 },
         1200: { slidesPerView: 3, spaceBetween: 30 },
@@ -100,43 +135,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const portfolioCards = document.querySelectorAll(".portfolio-card");
     const modal = document.querySelector(".modal");
     if (!modal || !portfolioCards.length) return;
-
     const modalTitle = modal.querySelector(".modal__title");
     const modalDescription = modal.querySelector(".modal__description");
     const modalGalleryImages = modal.querySelectorAll(".modal__gallery-image");
     const closeButton = modal.querySelector(".modal__close");
     const overlay = modal.querySelector(".modal__overlay");
-
     const openModal = (card) => {
       modalTitle.textContent = card.querySelector(".portfolio-card__title").textContent;
       modalDescription.textContent = card.querySelector(".portfolio-card__description").textContent;
-      
-      // Lê as imagens do atributo data-images e atualiza a galeria da modal
       const images = JSON.parse(card.dataset.images || '[]');
       modalGalleryImages.forEach((img, index) => {
         if (images[index]) {
           img.src = images[index];
           img.style.display = 'block';
         } else {
-          img.style.display = 'none'; // Esconde se não houver imagem
+          img.style.display = 'none';
         }
       });
-
       modal.classList.remove("modal--hidden");
       document.body.classList.add("modal-open");
     };
-
     const closeModal = () => {
       modal.classList.add("modal--hidden");
       document.body.classList.remove("modal-open");
     };
-
     portfolioCards.forEach(card => {
       card.addEventListener("click", () => {
         openModal(card);
       });
     });
-
     closeButton.addEventListener("click", closeModal);
     overlay.addEventListener("click", closeModal);
   };
@@ -148,29 +175,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleryImages = document.querySelectorAll(".modal__gallery-image");
     const lightbox = document.querySelector(".image-lightbox");
     if (!lightbox || !galleryImages.length) return;
-
     const lightboxImage = lightbox.querySelector(".image-lightbox__image");
     const lightboxClose = lightbox.querySelector(".image-lightbox__close");
     const lightboxOverlay = lightbox.querySelector(".image-lightbox__overlay");
-
     const openLightbox = (imageSrc) => {
         lightboxImage.src = imageSrc;
         lightbox.classList.remove("image-lightbox--hidden");
     }
-
     const closeLightbox = () => {
         lightbox.classList.add("image-lightbox--hidden");
     }
-
     galleryImages.forEach(img => {
         img.addEventListener("click", () => {
-            // Só abre o lightbox se a imagem tiver um 'src' válido
-            if(img.src && !img.src.endsWith('#')) {
+            if(img.src && !img.src.endsWith('#') && !img.src.includes('undefined')) {
                 openLightbox(img.src);
             }
         });
     });
-
     lightboxClose.addEventListener("click", closeLightbox);
     lightboxOverlay.addEventListener("click", closeLightbox);
   };
@@ -183,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.key !== "Escape") return;
       const modal = document.querySelector(".modal");
       const lightbox = document.querySelector(".image-lightbox");
-
       if (!lightbox.classList.contains("image-lightbox--hidden")) {
         lightbox.classList.add("image-lightbox--hidden");
       } else if (!modal.classList.contains("modal--hidden")) {
