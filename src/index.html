@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="particles-js"></div>
+    
     <header class="header">
       <div class="header__logo">
         <a href="#hero" aria-label="Página Inicial" class="header__logo-link"></a>
-      </div>
       </div>
       <nav class="header__nav">
         <a href="#portfolio">Portfólio</a>
@@ -36,7 +37,7 @@
       </button>
     </header>
 
-    <main>
+    <main class="main-content">
       <section class="hero" id="hero">
         <div class="hero__content fade-in">
           <h1 class="hero__title">Tecnologia que Transforma Eventos</h1>
@@ -44,65 +45,22 @@
             Soluções de ponta em som e iluminação para experiências
             inesquecíveis.
           </p>
+          <a href="#contato" class="hero__button">Faça um Orçamento</a>
         </div>
       </section>
 
       <section class="portfolio" id="portfolio">
         <div class="container">
-          <h2 class="section-title anim-on-scroll">
-            Nosso Trabalho em Destaque
-          </h2>
-          <p class="section-intro anim-on-scroll">
-            Clique em um projeto para ver os detalhes e mais fotos.
-          </p>
+          <h2 class="section-title anim-on-scroll">Nosso Trabalho em Destaque</h2>
+          <p class="section-intro anim-on-scroll">Clique em um projeto para ver os detalhes e mais fotos.</p>
         </div>
         <div class="swiper portfolio__swiper anim-on-scroll">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
-                <img src="images/baner2.png" alt="Iluminação cênica para casamento" class="portfolio-card__image" />
-                <div class="portfolio-card__content">
-                  <h3 class="portfolio-card__title">Casamento Sofisticado</h3>
-                  <p class="portfolio-card__description">Iluminação cênica e sonorização ambiente para criar uma atmosfera mágica e inesquecível.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
-                <img src="images/baner2.png" alt="Estrutura de palco para show musical" class="portfolio-card__image" />
-                <div class="portfolio-card__content">
-                  <h3 class="portfolio-card__title">Show Musical</h3>
-                  <p class="portfolio-card__description">PA, monitores e iluminação dinâmica com moving heads para uma performance de alto impacto.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
-                <img src="images/baner2.png" alt="Painel de LED em evento corporativo" class="portfolio-card__image" />
-                <div class="portfolio-card__content">
-                  <h3 class="portfolio-card__title">Evento Corporativo</h3>
-                  <p class="portfolio-card__description">Painéis de LED de alta resolução e microfonia profissional para apresentações claras.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
-                <img src="images/baner2.png" alt="Pista de dança em formatura" class="portfolio-card__image" />
-                <div class="portfolio-card__content">
-                  <h3 class="portfolio-card__title">Baile de Formatura</h3>
-                  <p class="portfolio-card__description">Estrutura box truss, moving beams e efeitos especiais para uma noite de celebração vibrante.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'>
-                <img src="images/baner2.png" alt="Decoração de Natal" class="portfolio-card__image" />
-                <div class="portfolio-card__content">
-                  <h3 class="portfolio-card__title">Decoração de Natal</h3>
-                  <p class="portfolio-card__description">Iluminação especial para fachadas e ambientes, criando um cenário natalino encantador.</p>
-                </div>
-              </div>
-            </div>
+            <div class="swiper-slide"><div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'><img src="images/baner2.png" alt="Iluminação cênica para casamento" class="portfolio-card__image" /><div class="portfolio-card__content"><h3 class="portfolio-card__title">Casamento Sofisticado</h3><p class="portfolio-card__description">Iluminação cênica e sonorização ambiente para criar uma atmosfera mágica e inesquecível.</p></div></div></div>
+            <div class="swiper-slide"><div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'><img src="images/baner2.png" alt="Estrutura de palco para show musical" class="portfolio-card__image" /><div class="portfolio-card__content"><h3 class="portfolio-card__title">Show Musical</h3><p class="portfolio-card__description">PA, monitores e iluminação dinâmica com moving heads para uma performance de alto impacto.</p></div></div></div>
+            <div class="swiper-slide"><div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'><img src="images/baner2.png" alt="Painel de LED em evento corporativo" class="portfolio-card__image" /><div class="portfolio-card__content"><h3 class="portfolio-card__title">Evento Corporativo</h3><p class="portfolio-card__description">Painéis de LED de alta resolução e microfonia profissional para apresentações claras.</p></div></div></div>
+            <div class="swiper-slide"><div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'><img src="images/baner2.png" alt="Pista de dança em formatura" class="portfolio-card__image" /><div class="portfolio-card__content"><h3 class="portfolio-card__title">Baile de Formatura</h3><p class="portfolio-card__description">Estrutura box truss, moving beams e efeitos especiais para uma noite de celebração vibrante.</p></div></div></div>
+            <div class="swiper-slide"><div class="portfolio-card" data-images='["images/baner2.png", "images/baner2.png", "images/baner2.png", "images/baner2.png"]'><img src="images/baner2.png" alt="Decoração de Natal" class="portfolio-card__image" /><div class="portfolio-card__content"><h3 class="portfolio-card__title">Decoração de Natal</h3><p class="portfolio-card__description">Iluminação especial para fachadas e ambientes, criando um cenário natalino encantador.</p></div></div></div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-button-prev"></div>
@@ -113,9 +71,7 @@
       <section class="about" id="sobre">
         <div class="container">
           <h2 class="section-title anim-on-scroll">Sobre a Empresa</h2>
-          <p class="section-intro anim-on-scroll">
-            MX Sound & Light – Excelência em Som, Luz e Produções Audiovisuais
-          </p>
+          <p class="section-intro anim-on-scroll">MX Sound & Light – Excelência em Som, Luz e Produções Audiovisuais</p>
           <div class="about__intro-text anim-on-scroll"><p>Com mais de uma década de experiência no mercado de eventos, a MX Sound & Light é referência em projetos de sonorização, iluminação cênica e soluções audiovisuais personalizadas. Localizada em Pinhais, na região metropolitana de Curitiba (PR), a empresa se destaca pelo atendimento técnico de alto nível, equipamentos de última geração e comprometimento com a excelência operacional.</p></div>
           <div class="about__content-grid">
             <div class="about__text-block anim-on-scroll" id="servicos">
@@ -147,11 +103,9 @@
       <section class="location" id="localizacao">
         <div class="container">
           <h2 class="section-title anim-on-scroll">Nossa Localização</h2>
-          <p class="section-intro anim-on-scroll">
-            Estamos localizados em Pinhais, prontos para atender Curitiba e região. Venha tomar um café e conhecer nossa estrutura.
-          </p>
+          <p class="section-intro anim-on-scroll">Estamos localizados em Pinhais, prontos para atender Curitiba e região. Venha tomar um café e conhecer nossa estrutura.</p>
           <div class="location__map-container anim-on-scroll">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.219597182218!2d-49.18349252461014!3d-25.43097197756184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce111039803b3%3A0x6b63065a3b753444!2sR.%20Eut%C3%A1lia%20Maria%20dos%20Santos%2C%204155%20-%20Vila%20Carolina%2C%20Pinhais%20-%20PR%2C%2083326-280!5e0!3m2!1spt-BR!2sbr!4v1720551048868!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização da MX Sound and Light"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.288219355799!2d-49.19114342380509!3d-25.39441112920251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcef4f458cf233%3A0x81db5bdbb496a994!2sAv.%20Maring%C3%A1%2C%204155%20-%20Atuba%2C%20Pinhais%20-%20PR%2C%2083326-170!5e0!3m2!1spt-BR!2sbr!4v1720624632296!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização da MX Sound and Light"></iframe>
           </div>
         </div>
       </section>
@@ -160,7 +114,7 @@
     <footer class="footer" id="contato">
       <div class="container">
         <div class="footer__info anim-on-scroll">
-          <p><strong>Endereço:</strong> R. Eutália Maria dos Santos, 4155 - Vila Carolina, Pinhais - PR, 83326-280</p>
+          <p><strong>Endereço:</strong> Av. Maringá, 4155 - Atuba, Pinhais - PR, 83326-170</p>
           <p><strong>Telefone:</strong> (41) 99931-6363</p>
           <p><strong>Email:</strong> contato@mxsound.com.br</p>
         </div>
@@ -173,9 +127,10 @@
     </footer>
 
     <a href="https://wa.me/5541999316363?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20um%20evento." target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp"><img src="./images/whats.png" alt="Ícone do WhatsApp" /></a>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js" defer></script>
-    <div class="modal modal--hidden"><div class="modal__overlay"></div><div class="modal__content"><button class="modal__close" aria-label="Fechar janela">&times;</button><h3 class="modal__title">Título do Evento</h3><p class="modal__description">Descrição detalhada do projeto aqui.</p><div class="modal__gallery"><img src="" alt="Foto 1 do evento" class="modal__gallery-image"><img src="" alt="Foto 2 do evento" class="modal__gallery-image"><img src="" alt="Foto 3 do evento" class="modal__gallery-image"><img src="" alt="Foto 4 do evento" class="modal__gallery-image"></div></div></div>
-    <div class="image-lightbox image-lightbox--hidden"><div class="image-lightbox__overlay"></div><span class="image-lightbox__close">&times;</span><img src="" alt="Imagem do evento em destaque" class="image-lightbox__image"></div>
+    <div class="modal modal--hidden"><div class="modal__overlay"></div><div class="modal__content"><button class="modal__close" aria-label="Fechar janela">×</button><h3 class="modal__title">Título do Evento</h3><p class="modal__description">Descrição detalhada do projeto aqui.</p><div class="modal__gallery"><img src="" alt="Foto 1 do evento" class="modal__gallery-image"><img src="" alt="Foto 2 do evento" class="modal__gallery-image"><img src="" alt="Foto 3 do evento" class="modal__gallery-image"><img src="" alt="Foto 4 do evento" class="modal__gallery-image"></div></div></div>
+    <div class="image-lightbox image-lightbox--hidden"><div class="image-lightbox__overlay"></div><span class="image-lightbox__close">×</span><img src="" alt="Imagem do evento em destaque" class="image-lightbox__image"></div>
   </body>
 </html>
