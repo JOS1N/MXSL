@@ -136,7 +136,7 @@ body.light-mode .theme-toggle__icon--sun { display: block; }
 
 /* --- HERO (COM VÍDEO DE FUNDO) --- */
 .hero { 
-  position: relative;
+  position: absolute;
   min-height: 100vh; 
   display: flex; 
   align-items: center; 
