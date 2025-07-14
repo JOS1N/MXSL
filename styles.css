@@ -257,7 +257,7 @@ body.light-mode .location__map-container iframe { filter: none; }
   .header__nav { width: 100%; order: 2; gap: 15px; flex-wrap: wrap; justify-content: center; margin: 0; }
   .header__nav a { font-size: 0.8rem; }
   .theme-toggle { order: 1; }
-  .hero { min-height: 70vh; background-attachment: scroll; }
+  .hero { min-height: 70vh; }
   .portfolio, .about, .location { padding-top: 80px; }
   .section-intro { margin-bottom: 40px; }
   .portfolio-card { width: 200px; height: 200px; }
