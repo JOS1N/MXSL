@@ -221,7 +221,7 @@ body.light-mode .location__map-container iframe { filter: none; }
 .portfolio-card:hover .portfolio-card__image { filter: brightness(1.1); }
 .portfolio-card__content { display: none; }
 .swiper-wrapper { align-items: center; }
-.swiper-slide { display: flex; justify-content: center; align-items: center; flex-flow: column wrap; min-height: 480px; transition: transform 0.4s, opacity 0.4s; opacity: 0.5; transform: scale(0.8); gap: 20px; }
+.swiper-slide { display: flex; justify-content: center; align-items: center; flex-flow: column wrap; min-height: 480px; transition: transform 0.4s, opacity 0.4s; opacity: 0.5; transform: scale(0.8); gap: 10px; }
 .swiper-slide-active { opacity: 1; transform: scale(1); }
 .swiper-button-next, .swiper-button-prev { color: var(--color-text-primary); transition: transform 0.2s ease; }
 .swiper-button-next:hover, .swiper-button-prev:hover { transform: scale(1.2); }
